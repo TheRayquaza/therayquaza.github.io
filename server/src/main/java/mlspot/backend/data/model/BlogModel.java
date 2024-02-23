@@ -13,7 +13,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "blog")
 public class BlogModel extends PanacheEntityBase {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+    Long categoryId;
     String title;
     String description;
 }

@@ -1,4 +1,4 @@
-package mlspot.backend.domain.entity;
+package mlspot.backend.presentation.rest.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,10 +9,8 @@ import lombok.With;
 @With
 @AllArgsConstructor
 @NoArgsConstructor
-public class BlogContentEntity {
+public class BlogCategoryResponse {
     Long id;
-    String type;
-    String content;
-    Long number;
-    Long blogId;
+    Long parentId;
+    String name;
 }

@@ -2,6 +2,7 @@ package mlspot.backend.presentation.rest;
 
 import io.vertx.ext.web.RoutingContext;
 import mlspot.backend.converter.EntityResponseConverter;
+import mlspot.backend.domain.entity.BlogCategoryEntity;
 import mlspot.backend.domain.entity.BlogContentEntity;
 import mlspot.backend.domain.entity.BlogEntity;
 import mlspot.backend.domain.service.BlogService;
@@ -10,10 +11,13 @@ import mlspot.backend.errors.NotFoundError;
 import mlspot.backend.errors.UnauthorizedError;
 import mlspot.backend.exceptions.BlogContentNotFoundException;
 import mlspot.backend.exceptions.BlogNotFoundException;
+import mlspot.backend.exceptions.BlogCategoryNotFoundException;
+import mlspot.backend.presentation.rest.request.CreateBlogCategoryRequest;
 import mlspot.backend.presentation.rest.request.CreateBlogContentRequest;
 import mlspot.backend.presentation.rest.request.CreateBlogRequest;
 import mlspot.backend.presentation.rest.request.ModifyBlogContentRequest;
 import mlspot.backend.presentation.rest.request.ModifyBlogRequest;
+import mlspot.backend.presentation.rest.request.ModifyBlogCategoryRequest;
 import mlspot.backend.presentation.rest.response.BlogContentResponse;
 import mlspot.backend.presentation.rest.response.BlogResponse;
 import mlspot.backend.presentation.rest.response.SuccessResponse;
@@ -209,6 +213,73 @@ public class BlogEndpoint {
             return Response.status(404).entity(new NotFoundError()).build();
         } catch (BlogContentNotFoundException ignored) {
             logger.info("[404] blog content with id " + contentId + " not found");
+            return Response.status(404).entity(new NotFoundError()).build();
+        }
+    }
+
+    @GET
+    @Path("/category")
+    public Response getAllBlogCategoryEndpoint() {
+        logger.info("[GET] /blogs/category");
+        return Response.status(200).entity(EntityResponseConverter.Of(blogService.getAllBlogCategory(-1L))).build();
+    }
+
+    @GET
+    @Path("/category/{categoryId}")
+    public Response getBlogCategoryEndpoint(@PathParam(value = "categoryId") Long categoryId) {
+        logger.info("[GET] /blogs/category/" + categoryId);
+        if (categoryId == null)
+            return Response.status(400).entity(new BadRequestError()).build();
+        try {
+            return Response.status(200).entity(EntityResponseConverter.Of(blogService.getBlogCategory(categoryId))).build();
+        } catch (BlogCategoryNotFoundException ignored) {
+            return Response.status(404).entity(new NotFoundError()).build();
+        }
+    }
+
+    @POST
+    @Path("/category")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createBlogCategoryEndpoint(@RequestBody CreateBlogCategoryRequest request, @Context RoutingContext context) {
+        logger.info("[POST] /blogs/category");
+        if (!securityFilter.checkPermission(context))
+            return Response.status(401).entity(new UnauthorizedError()).build();
+        if (request == null || request.getName() == null)
+            return Response.status(400).entity(new BadRequestError()).build();
+        BlogCategoryEntity blogCategoryEntity = blogService.createBlogCategory(request);
+        return Response.status(200).entity(EntityResponseConverter.Of(blogCategoryEntity)).build();
+    }
+
+    @PUT
+    @Path("/category/{categoryId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response modifyBlogCategoryEndpoint(@RequestBody ModifyBlogCategoryRequest request, @PathParam(value = "categoryId") Long categoryId, @Context RoutingContext context) {
+        logger.info("[PUT] /blogs/category/" + categoryId);
+        if (!securityFilter.checkPermission(context))
+            return Response.status(401).entity(new UnauthorizedError()).build();
+        if (request == null || request.getName() == null || categoryId == null)
+            return Response.status(400).entity(new BadRequestError()).build();
+        try {
+            BlogCategoryEntity blogCategoryEntity = blogService.modifyBlogCategory(request, categoryId);
+            return Response.status(200).entity(EntityResponseConverter.Of(blogCategoryEntity)).build();
+        } catch (BlogCategoryNotFoundException ignored) {
+            return Response.status(404).entity(new NotFoundError()).build();
+        }
+    }
+
+    @DELETE
+    @Path("/category/{categoryId}")
+    public Response deleteBlogCategoryEndpoint(@PathParam(value = "categoryId") Long categoryId, @Context RoutingContext context) {
+        logger.info("[DELETE] /blogs/category/" + categoryId);
+        if (!securityFilter.checkPermission(context))
+            return Response.status(401).entity(new UnauthorizedError()).build();
+        if (categoryId == null)
+            return Response.status(400).entity(new BadRequestError()).build();
+        try {
+            if (!blogService.deleteBlogCategory(categoryId))
+                return Response.status(400).entity(new BadRequestError()).build();
+            return Response.status(200).entity(new SuccessResponse()).build();
+        } catch (BlogCategoryNotFoundException ignored) {
             return Response.status(404).entity(new NotFoundError()).build();
         }
     }

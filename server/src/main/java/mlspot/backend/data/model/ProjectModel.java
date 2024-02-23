@@ -14,7 +14,9 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "project")
 public class ProjectModel extends PanacheEntityBase {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
     String name;
     String description = "";
     String technologies = "";

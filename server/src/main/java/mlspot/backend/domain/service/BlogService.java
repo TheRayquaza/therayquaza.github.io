@@ -2,15 +2,22 @@ package mlspot.backend.domain.service;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import mlspot.backend.converter.ModelEntityConverter;
+import mlspot.backend.data.model.BlogCategoryModel;
 import mlspot.backend.data.model.BlogContentModel;
 import mlspot.backend.data.model.BlogModel;
 import mlspot.backend.data.repository.BlogContentRepository;
 import mlspot.backend.data.repository.BlogRepository;
+import mlspot.backend.data.repository.BlogCategoryRepository;
 import mlspot.backend.domain.entity.BlogContentEntity;
 import mlspot.backend.domain.entity.BlogEntity;
+import mlspot.backend.domain.entity.BlogCategoryEntity;
+import mlspot.backend.domain.entity.BlogCategoryStructureEntity;
+import mlspot.backend.exceptions.BlogCategoryNotFoundException;
 import mlspot.backend.exceptions.BlogContentNotFoundException;
 import mlspot.backend.exceptions.BlogNotFoundException;
+import mlspot.backend.presentation.rest.request.CreateBlogCategoryRequest;
 import mlspot.backend.presentation.rest.request.CreateBlogContentRequest;
+import mlspot.backend.presentation.rest.request.ModifyBlogCategoryRequest;
 import mlspot.backend.presentation.rest.request.ModifyBlogContentRequest;
 import mlspot.backend.presentation.rest.request.ModifyBlogRequest;
 
@@ -28,6 +35,9 @@ public class BlogService {
 
     @Inject
     BlogContentRepository blogContentRepository;
+
+    @Inject
+    BlogCategoryRepository blogCategoryRepository;
 
     @Transactional
     public List<BlogEntity> getAllBlogs() {
@@ -95,7 +105,8 @@ public class BlogService {
     }
 
     @Transactional
-    public BlogContentEntity getBlogContent(Long blogId, Long contentId) throws BlogNotFoundException, BlogContentNotFoundException {
+    public BlogContentEntity getBlogContent(Long blogId, Long contentId)
+            throws BlogNotFoundException, BlogContentNotFoundException {
         BlogModel blogModel = blogRepository.findById(blogId);
         if (blogModel == null)
             throw new BlogNotFoundException();
@@ -108,7 +119,8 @@ public class BlogService {
     }
 
     @Transactional
-    public boolean deleteBlogContent(Long blogId, Long contentId) throws BlogNotFoundException, BlogContentNotFoundException {
+    public boolean deleteBlogContent(Long blogId, Long contentId)
+            throws BlogNotFoundException, BlogContentNotFoundException {
         BlogModel blogModel = blogRepository.findById(blogId);
         if (blogModel == null)
             throw new BlogNotFoundException();
@@ -119,16 +131,17 @@ public class BlogService {
             throw new BlogContentNotFoundException();
         Long number = blogContentModel.getNumber();
         blogContentRepository
-                        .findAll()
-                        .stream()
-                        .filter(b -> b.getBlogId().equals(blogId) && b.getNumber() > number)
-                        .forEach(b -> b.setNumber(b.getNumber() - 1));
+                .findAll()
+                .stream()
+                .filter(b -> b.getBlogId().equals(blogId) && b.getNumber() > number)
+                .forEach(b -> b.setNumber(b.getNumber() - 1));
         blogContentModel.delete();
         return true;
     }
 
     @Transactional
-    public BlogContentEntity createBlogContent(CreateBlogContentRequest request, Long blogId) throws BlogNotFoundException {
+    public BlogContentEntity createBlogContent(CreateBlogContentRequest request, Long blogId)
+            throws BlogNotFoundException {
         BlogModel blogModel = blogRepository.findById(blogId);
         if (blogModel == null)
             throw new BlogNotFoundException();
@@ -142,7 +155,8 @@ public class BlogService {
     }
 
     @Transactional
-    public BlogContentEntity modifyBlogContent(ModifyBlogContentRequest request, Long blogId, Long contentId) throws BlogNotFoundException, BlogContentNotFoundException {
+    public BlogContentEntity modifyBlogContent(ModifyBlogContentRequest request, Long blogId, Long contentId)
+            throws BlogNotFoundException, BlogContentNotFoundException {
         BlogModel blogModel = blogRepository.findById(blogId);
         if (blogModel == null)
             throw new BlogNotFoundException();
@@ -158,5 +172,86 @@ public class BlogService {
         if (request.getNumber() != null)
             blogContentModel.setNumber(request.getNumber());
         return ModelEntityConverter.Of(blogContentModel);
+    }
+
+    @Transactional
+    public BlogCategoryStructureEntity getAllBlogCategory(Long parentId) {
+        if (parentId == -1L) {
+            List<BlogCategoryStructureEntity> children = blogCategoryRepository
+                    .findAll()
+                    .stream()
+                    .filter(c -> c.getParentId().equals(-1L))
+                    .map(c -> getAllBlogCategory(c.getId()))
+                    .filter(c -> c != null)
+                    .toList();
+            BlogCategoryStructureEntity structure = new BlogCategoryStructureEntity()
+                    .withName("ROOT")
+                    .withId(-1L)
+                    .withChildren(children);
+            return structure;
+        } else {
+            BlogCategoryModel blogCategoryModel = blogCategoryRepository.findById(parentId);
+            if (blogCategoryModel == null)
+                return null;
+            List<BlogCategoryStructureEntity> children = blogCategoryRepository
+                    .findAll()
+                    .stream()
+                    .filter(c -> c.getParentId().equals(parentId))
+                    .map(c -> getAllBlogCategory(c.getId()))
+                    .filter(c -> c != null)
+                    .toList();
+            BlogCategoryStructureEntity structure = new BlogCategoryStructureEntity()
+                    .withName(blogCategoryModel.getName())
+                    .withId(parentId)
+                    .withChildren(children);
+            return structure;
+        }
+    }
+
+    @Transactional
+    public BlogCategoryEntity getBlogCategory(Long categoryId) throws BlogCategoryNotFoundException {
+        BlogCategoryModel blogCategoryModel = blogCategoryRepository.findById(categoryId);
+        if (blogCategoryModel == null)
+            throw new BlogCategoryNotFoundException();
+        return ModelEntityConverter.Of(blogCategoryModel);
+    }
+
+    @Transactional
+    public BlogCategoryEntity createBlogCategory(CreateBlogCategoryRequest request) {
+        BlogCategoryModel blogCategoryModel = new BlogCategoryModel().withName(request.getName());
+        blogCategoryModel.persist();
+        return ModelEntityConverter.Of(blogCategoryModel);
+    }
+
+    @Transactional
+    public BlogCategoryEntity modifyBlogCategory(ModifyBlogCategoryRequest request, Long categoryId)
+            throws BlogCategoryNotFoundException {
+        BlogCategoryModel blogCategoryModel = blogCategoryRepository.findById(categoryId);
+        if (blogCategoryModel == null)
+            throw new BlogCategoryNotFoundException();
+        blogCategoryModel.setName(request.getName());
+        if (request.getParentId().equals(-1L))
+            blogCategoryModel.setParentId(-1L);
+        else {
+            BlogCategoryModel blogCategoryParentModel = blogCategoryRepository.findById(request.getParentId());
+            if (blogCategoryParentModel == null)
+                throw new BlogCategoryNotFoundException();
+            blogCategoryModel.setParentId(blogCategoryParentModel.getId());
+        }
+        return ModelEntityConverter.Of(blogCategoryModel);
+    }
+
+    @Transactional
+    public boolean deleteBlogCategory(Long categoryId) throws BlogCategoryNotFoundException {
+        BlogCategoryModel blogCategoryModel = blogCategoryRepository.findById(categoryId);
+        if (blogCategoryModel == null)
+            throw new BlogCategoryNotFoundException();
+        blogCategoryRepository
+                .findAll()
+                .stream()
+                .filter(c -> c.getParentId().equals(categoryId))
+                .forEach(c -> c.setParentId(-1L));
+        blogCategoryModel.delete();
+        return true;
     }
 }

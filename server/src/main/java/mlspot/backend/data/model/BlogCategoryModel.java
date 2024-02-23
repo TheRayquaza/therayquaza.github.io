@@ -11,14 +11,11 @@ import javax.persistence.*;
 @With
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "blog_content")
-public class BlogContentModel extends PanacheEntityBase {
+@Table(name = "blog_category")
+public class BlogCategoryModel extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @Column(length = 8192)
-    String content;
-    String type;
-    Long number;
-    Long blogId;
+    String name;
+    Long parentId = -1L;
 }

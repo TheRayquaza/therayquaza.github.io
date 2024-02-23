@@ -1,10 +1,8 @@
 package mlspot.backend.presentation.rest;
 
-import io.vertx.ext.web.RoutingContext;
 import mlspot.backend.errors.UnauthorizedError;
 import mlspot.backend.presentation.rest.request.AdminRequest;
 import mlspot.backend.presentation.rest.response.SuccessResponse;
-import mlspot.backend.security.SecurityFilter;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.slf4j.Logger;
@@ -28,7 +26,7 @@ public class AdminEndpoint {
     @POST
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createBlogEndpoint(@RequestBody AdminRequest adminRequest) {
+    public Response validateAdmin(@RequestBody AdminRequest adminRequest) {
         logger.info("[POST] /admin");
         if (!adminRequest.getApiKey().equals(apiKey)) {
             logger.warn("A user tried to access admin panel but failed !");

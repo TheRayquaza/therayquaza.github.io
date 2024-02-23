@@ -9,10 +9,8 @@ import lombok.With;
 @With
 @AllArgsConstructor
 @NoArgsConstructor
-public class BlogContentEntity {
+public class BlogCategoryEntity {
     Long id;
-    String type;
-    String content;
-    Long number;
-    Long blogId;
+    Long parentId = -1L;
+    String name;
 }

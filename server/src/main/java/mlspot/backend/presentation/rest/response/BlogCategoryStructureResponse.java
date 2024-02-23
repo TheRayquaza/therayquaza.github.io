@@ -5,14 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.With;
 
-@With
-@AllArgsConstructor
+import java.util.List;
+
 @Data
+@With
 @NoArgsConstructor
-public class BlogContentResponse {
+@AllArgsConstructor
+public class BlogCategoryStructureResponse {
+    String name;
     Long id;
-    String type;
-    String content;
-    Long number;
-    Long blogId;
+    List<BlogCategoryStructureResponse> children;
 }
