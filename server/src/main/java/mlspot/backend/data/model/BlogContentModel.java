@@ -16,5 +16,6 @@ public class BlogContentModel extends PanacheEntityBase {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     @Column(length = 8192) String content;
     String type;
+    Long number;
     Long blogId;
 }

@@ -4,15 +4,13 @@ import mlspot.backend.converter.ModelEntityConverter;
 import mlspot.backend.data.model.ProjectModel;
 import mlspot.backend.data.repository.ProjectRepository;
 import mlspot.backend.domain.entity.ProjectEntity;
-import mlspot.backend.errors.ProjectNotFoundError;
+import mlspot.backend.exceptions.ProjectNotFoundException;
 import mlspot.backend.presentation.rest.request.ModifyProjectRequest;
 import mlspot.backend.utils.DateUtil;
-import net.bytebuddy.matcher.StringMatcher;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,10 +30,10 @@ public class ProjectService {
     }
 
     @Transactional
-    public ProjectEntity getProject(Long projectId) throws ProjectNotFoundError {
+    public ProjectEntity getProject(Long projectId) throws ProjectNotFoundException {
         ProjectModel projectModel = projectRepository.findById(projectId);
         if (projectModel == null)
-            throw new ProjectNotFoundError();
+            throw new ProjectNotFoundException();
         return ModelEntityConverter.Of(projectModel);
     }
 
@@ -47,18 +45,18 @@ public class ProjectService {
     }
 
     @Transactional
-    public boolean deleteProject(Long projectId) throws ProjectNotFoundError {
+    public boolean deleteProject(Long projectId) throws ProjectNotFoundException {
         ProjectModel projectModel = projectRepository.findById(projectId);
         if (projectModel == null)
-            throw new ProjectNotFoundError();
+            throw new ProjectNotFoundException();
         return projectRepository.deleteById(projectId);
     }
 
     @Transactional
-    public ProjectEntity modifyProject(ModifyProjectRequest request, Long projectId) throws ProjectNotFoundError {
+    public ProjectEntity modifyProject(ModifyProjectRequest request, Long projectId) throws ProjectNotFoundException {
         ProjectModel projectModel = projectRepository.findById(projectId);
         if (projectModel == null)
-            throw new ProjectNotFoundError();
+            throw new ProjectNotFoundException();
         if (request.getFinishedDate() != null && DateUtil.isValidLocalDate(request.getFinishedDate()))
             projectModel.setFinishedDate(LocalDate.parse(request.getFinishedDate()));
         if (request.getStartingDate() != null && DateUtil.isValidLocalDate(request.getStartingDate()))

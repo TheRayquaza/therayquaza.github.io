@@ -6,4 +6,5 @@ import lombok.Data;
 public class ModifyBlogContentRequest {
     String content;
     String type;
+    Long number;
 }

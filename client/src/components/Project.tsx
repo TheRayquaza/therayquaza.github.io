@@ -1,8 +1,15 @@
-import React from "react";
 import { Box, Heading, Text, Link as ChakraLink } from "@chakra-ui/react";
 import ProjectType from "../types/ProjectType";
+import {GlobalContext} from "../context/GlobalProvider.tsx";
+import {useContext} from "react";
 
-const Project = ( project: ProjectType ) => {
+type ProjectProps = {
+    project:ProjectType;
+}
+
+const Project = ( { project } : ProjectProps ) => {
+    const { isAdmin, apiKey } = useContext(GlobalContext);
+
     return (
         <Box p={4} shadow="md" borderWidth="1px" rounded="md" bg="dark">
             <Heading as="h3" size="md" color="blue.600" mb={2}>

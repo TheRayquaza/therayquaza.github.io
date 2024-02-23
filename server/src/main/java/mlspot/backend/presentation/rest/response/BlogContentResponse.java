@@ -13,4 +13,6 @@ public class BlogContentResponse {
     Long id;
     BlogContentEnumResponse type;
     String content;
+    Long number;
+    Long blogId;
 }

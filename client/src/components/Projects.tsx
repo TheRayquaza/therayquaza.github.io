@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
 import Project from "./Project";
 import ProjectType from "../types/ProjectType.ts";
@@ -9,7 +9,7 @@ const ProjectsPage = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        document.title = "Projects";
+        document.title = "Admin - Projects";
         send_request("/projects", "GET")
             .then((data) => {
                 console.log(data)
@@ -22,25 +22,15 @@ const ProjectsPage = () => {
             });
     }, []);
 
+    if (loading)
+        return <Spinner size="xl" />
+
     return (
         <Box p={4}>
             <Heading as="h1" mb={4}>Projects</Heading>
-            {loading ? (
-                <Spinner size="xl" />
-            ) : (
                 <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={6}>
-                    {projects.map((project) => (
-                        <Project key={project.id}
-                                 id={project.id}
-                                 description={project.description}
-                                 technologies={project.technologies}
-                                 finishedDate={project.finishedDate}
-                                 startingDate={project.startingDate}
-                                 name={project.name}
-                        />
-                    ))}
+                    {projects.map((project) => <Project key={project.id} project={project}/>)}
                 </SimpleGrid>
-            )}
         </Box>
     );
 };

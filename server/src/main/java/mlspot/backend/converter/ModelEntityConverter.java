@@ -34,7 +34,9 @@ public class ModelEntityConverter {
         return new BlogContentEntity()
                 .withContent(blogContentModel.getContent())
                 .withBlogContentEnumEntity(Of(blogContentModel.getType()))
-                .withId(blogContentModel.getId());
+                .withId(blogContentModel.getId())
+                .withNumber(blogContentModel.getNumber())
+                .withBlogId(blogContentModel.getBlogId());
     }
 
     public static BlogContentEnumEntity Of(String type) {

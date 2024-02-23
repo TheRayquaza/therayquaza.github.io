@@ -36,7 +36,9 @@ public class EntityResponseConverter {
         return new BlogContentResponse()
                 .withContent(blogContentEntity.getContent())
                 .withType(Of(blogContentEntity.getBlogContentEnumEntity()))
-                .withId(blogContentEntity.getId());
+                .withId(blogContentEntity.getId())
+                .withNumber(blogContentEntity.getNumber())
+                .withBlogId(blogContentEntity.getBlogId());
     }
 
     public static BlogContentEnumResponse Of(BlogContentEnumEntity enumEntity) {

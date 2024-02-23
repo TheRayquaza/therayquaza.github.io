@@ -13,4 +13,6 @@ public class BlogContentEntity {
     Long id;
     BlogContentEnumEntity blogContentEnumEntity;
     String content;
+    Long number;
+    Long blogId;
 }

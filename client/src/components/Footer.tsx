@@ -16,13 +16,13 @@ const Footer = () => {
             </Text>
             <Box display="flex" justifyContent="center" alignItems="center">
                 <Link href="https://github.com/TheRayquaza" isExternal mx={4}>
-                    <FaGithub boxSize={6} />
+                    <FaGithub />
                 </Link>
                 <Link href="https://linkedin.com/in/matéo-lelong-4b05ba256" isExternal mx={4}>
-                    <FaLinkedin boxSize={6} />
+                    <FaLinkedin/>
                 </Link>
                 <Link href="mailto:mateo.lelong@gmail.com" mx={4}>
-                    <MdEmail boxSize={6} />
+                    <MdEmail />
                 </Link>
             </Box>
             <Text mt={4} fontSize="sm">
