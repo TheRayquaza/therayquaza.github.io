@@ -5,7 +5,7 @@ type ProjectType = {
     technologies: string[];
     startingDate: string;
     finishedDate: string;
-    group: number;
+    members: number;
     link: string;
 }
 
