@@ -1,9 +1,27 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+parts:
+  - caption: Metrics, Validation, and Preprocessing Techniques
+    chapters:
+      - file: preprocessing/preprocessing
+  - caption: Machine Learning
+    chapters: # ML
+    - file: machine_learning/knn/knn # KNN
+      sections: # KNNRegressor, KNNClassifier
+        - file: machine_learning/knn/knn_regressor
+        - file: machine_learning/knn/knn_classifier
+    - file: machine_learning/decision_tree/decision_tree # DT
+      sections: # DecisionTreeClassifier, DecisionTreeRegressor
+        - file: machine_learning/decision_tree/decision_tree_regressor
+        - file: machine_learning/decision_tree/decision_tree_classifier
+    - file: machine_learning/linear/linear # LinearModel
+      sections: # LinearRegression, ElasticNet, RidgeRegression, LassoRegression
+        - file: machine_learning/linear/elastic_net
+    - file: machine_learning/svm/svm # SVM
+    - file: machine_learning/ensemble/ensemble # Ensemble
+    - file: machine_learning/clustering/kmeans # KMeans
+  - caption: Deep Learning
+    chapters:
+      - file: deep_learning/rnn/rnn
+      - file: deep_learning/cnn/cnn
+      - file: deep_learning/mlp/mlp
