@@ -1,4 +1,4 @@
-# KNN classifier
+# Classification
 
 ## Naive implementation
 
@@ -54,9 +54,10 @@ import numpy as np
 
 from sklearn.datasets import fetch_openml
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, classification_report
-
+from sklearn.metrics import confusion_matrix, classification_report, accuracy
 from sklearn.neighbors import KNeighborsClassifier
+
+from concurrent.futures import ThreadPoolExecutor, as_completed
 ```
 
 ### Preprocessing
@@ -74,7 +75,7 @@ Here is an example of a sample with this preprocessing:
 ```python
 plt.imshow(X[0].reshape((28, 28)), cmap="binary")
 ```
-![Image of a 5 in MNIST]("/images/machine_learning/knn/5_mnist.png")
+![Image of a 5 in MNIST](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/knn/5_mnist.png)
 
 ### Training
 

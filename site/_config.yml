@@ -24,10 +24,6 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
-sphinx:
-  config:
-    html_extra_path: ['images']
-
 # Information about where the book exists on the web
 repository:
   url: https://github.com/TheRayquaza/therayquaza.github.io  # Online location of your book
