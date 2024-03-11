@@ -1,4 +1,4 @@
-# Regression
+# KNN for regression
 
 KNN classifier can be adapted for regression task. It performs just as its classifier version but instead of using the voting principle, we use the mean feature. 
 
@@ -45,9 +45,9 @@ class KNeighborsRegressor(Model):
 ```
 https://github.com/TheRayquaza/ml_lib/blob/main/src/knn/knn_regressor.py
 
-### Experimenting KNN regressor on linear data
+## Experimenting KNN regressor on linear data
 
-This little piece of code tries to learn the realtionship $y = 10x + 1.2$.
+This little piece of code tries to learn the linear relationship $y = 10x + 1.2$.
 
 ```python
 from sklearn.neighbors import KNeighborsRegressor
@@ -72,4 +72,6 @@ plt.plot(X_train, y_train)
 plt.scatter(X_test, y_test)
 plt.scatter(X_test, y_pred)
 ```
-![KNN regression on y = 10x + 1.2](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/knn/KNN_regressor_linear.png)
+```{figure} https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/knn/KNN_regressor_linear.png
+$y = 10x + 1.2$
+```

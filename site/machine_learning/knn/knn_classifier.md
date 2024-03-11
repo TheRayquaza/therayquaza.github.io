@@ -1,4 +1,4 @@
-# Classification
+# KNN for classification
 
 ## Naive implementation
 
@@ -75,7 +75,9 @@ Here is an example of a sample with this preprocessing:
 ```python
 plt.imshow(X[0].reshape((28, 28)), cmap="binary")
 ```
-![Image of a 5 in MNIST](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/knn/5_mnist.png)
+```{figure} https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/knn/5_mnist.png
+5 preprocessed in MNIST
+```
 
 ### Training
 

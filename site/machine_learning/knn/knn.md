@@ -74,7 +74,9 @@ plt.plot(X_train, y_train)
 plt.scatter(X_test, y_test)
 plt.scatter(X_test, y_pred)
 ```
-![KNN limitation](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/knn/KNN_distribution_issue.png)
+```{figure} https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/knn/KNN_distribution_issue.png
+KNN limitation
+```
 
 We see that predictions have gone really bad. It seems that all predictions are stuck near the last point.
 KNN is really bad at predicting values it has never seen. This makes it bad if the dataset is not enough generic and balanced.
