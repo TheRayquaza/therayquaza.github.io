@@ -7,19 +7,13 @@ KNN classifier can be adapted for regression task. It performs just as its class
 This is a really simple implementation of the KNN regressor using the naive approach from my github repo.
 ```python
 import numpy as np
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from multiprocessing import cpu_count
 
-class KNeighborsRegressor(Model):
-    def __init__(self, k=5, distance_method=np.linalg.norm, n_jobs=None):
+class KNeighborsRegressor():
+    def __init__(self, k=5, distance_method=np.linalg.norm):
         if k < 0:
             raise ValueError("KNeighborsRegressor: k should be greater than 0")
         self.k = k
         self.distance_method = distance_method
-        self.n_jobs = cpu_count() if n_jobs == -1 else n_jobs
-
-    def fit(self, X: np.array, y: np.array):
-        pass
 
     def _make_prediction(self, X: np.array):
         distances = [self.distance_method(x, X) for x in self.X]
@@ -29,19 +23,7 @@ class KNeighborsRegressor(Model):
 
     def predict(self, X: np.array):        
         samples = X.shape[0]
-        result = np.zeros((samples))
-        
-        if not self.n_jobs:
-            for i in range(samples):
-                result[i] = self._make_prediction(X[i])
-        else:
-            pool = ThreadPoolExecutor(max_workers=self.n_jobs)
-            future_to_pred = {
-                pool.submit(self._make_prediction, X[i]): i for i in range(samples)
-            }
-            for future in as_completed(future_to_pred):
-                result[future_to_pred[future]] = future.result()
-        return result
+        return np.array([self._make_prediction(X[i] for i in range(samples))])
 ```
 https://github.com/TheRayquaza/ml_lib/blob/main/src/knn/knn_regressor.py
 

@@ -10,7 +10,6 @@ Explainability vs Accuracy (taken from [medium](https://medium.com/@joachimvanne
 
 The downside of high explainability is its impact on performance. Typically, performance is compromised when the model is overly explainable.
 
-
 ## How works a decision tree ?
 
 The training of a decision tree involves splitting features using the CART (Classification and Regression Trees) cost function. This function can be adjusted according to different contexts and impurity measures.
@@ -33,17 +32,23 @@ By design, inner rules from decision trees can be extracted.
 In scikit learn we can directly extract rules from a decision tree with graphviz.
 
 ```{figure} https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/decision_tree/DT_rules.png
-rules for the [wine dataset](https://archive.ics.uci.edu/dataset/109/wine)
+example of rules for the [wine dataset](https://archive.ics.uci.edu/dataset/109/wine)
 ```
-In this tree, leaf nodes 
+In this tree, leaf nodes are called "pure" because they hold only one class and so their gini impurity become 0.
 
-It is also considered explainable since the prediction process involves selecting the path by looking at the specific feature values of the input data and traversing the decision tree structure based on these values, allowing for clear understanding of how each decision contributes to the final prediction outcome.
+Aditionnaly, decision trees are considered explainable since the prediction process involves selecting the path by looking at the specific feature values of the input data and traversing the decision tree structure based on these values. This allows a clear understanding of how each decision contributes to the final prediction outcome.
 
 ## Overfitting with decision tree
 
 One problem with decision tree is they tend to overfit the training set when no pruning is given.
 Pruning is the action of reducing some part of the tree by removing part that gives little to no information on the classification.
 Pruning reduces the complexity of the final classifier and hence improves predictive accuracy by the reduction of overfitting.
+
+## Model complexity
+
+Decision trees perform really well when it comes to predict the class. Since the model is pre-built during training, prediction will retrieve from the inner tree structure, thus: $O(\log_2(k)) = O(\log(k))$ for binary tree implementation where k is the number of selected nodes (decision is considered to be constant).
+
+Decision trees are however slow to train. Training the decision tree requires to select the best split among the training observation and best features $n$. Finally, it builds its structure recursively, thus: $O(n \cdot k \cdot log(k))$
 
 ## References
 1. Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow by Aurélien Géron

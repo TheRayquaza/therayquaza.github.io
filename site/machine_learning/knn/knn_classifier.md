@@ -107,6 +107,7 @@ confusion_matrix(y_test, y_pred)
  [   8   10    1   10   21    3    0   21    0 1346]]
 ```
 
+With the confusion matrix, we can calculate metrics for each class:
 ```python
 classification_report(y_test, y_pred)
 ```
@@ -123,12 +124,4 @@ classification_report(y_test, y_pred)
 7       0.95      0.97      0.96      1503
 8       0.99      0.89      0.94      1357
 9       0.95      0.95      0.95      1420
-```
-
-### K tuning
-
-In this section, I will use various k to analyzes its impact on the overall accuracy of the model.
-
-```python
-
 ```
