@@ -25,17 +25,14 @@ There are multiple implementation of the KNN classifier. One of them consists of
 
 I have listed some implementation of the KNN model with their respective complexity:
 
-Let's denote: d as the number of dimension, n the number of sample and k the neighbor hyperparameter.
-- Brute-Force: naive implementation of KNN
-    * Training time / space complexity: $O(1)$ (No training for this method)
-    * Prediction time complexity: $O(k * \log(n))$
-    * Prediction space complexity: $O(1)$
-- K-d tree: construction of a k-d tree during training to simplify searching. It is similar to BST but it also supports multi-dimensional data.
-    * Training time complexity: $O(d * n * \log(n))$
-    * Training space complexity: $O(d * n)$
-    * Prediction time complexity: $O(k * \log(n))$
-    * Prediction space complexity: $O(1)$
-- Ball tree
+Let's denote: $d$ as the number of dimension, $n$ the number of sample and $k$ the neighbor hyperparameter.
+
+| Algorithm           | Training Time Complexity     | Training Space Complexity | Prediction Time Complexity | Prediction Space Complexity |
+|---------------------|------------------------------|---------------------------|----------------------------|-----------------------------|
+| Brute-Force         | $O(1)$                         | $O(1)$                      | $O(k * log(n))$              | $O(1)$                        |
+| K-d tree            | $O(d * n * log(n))$            | $O(d * n)$                   | $O(k * log(n))$              | $O(1)$                        |
+| Ball tree           | $O(d * n * log(n))$            | $O(d * n)$                  | $O(d * log(n))$              | $O(d * log(n))$               |
+
 
 ## Selecting k
 
@@ -88,7 +85,7 @@ All the dataset needs to be loaded into memory which makes it unusable for large
 
 ### Speed issue
 
-KNN is not a fast machine learning. Some implementation using pre-computed data structure to organize data in a more usable way can be used to reduce computation but it reamins slow during prediction.
+KNN is not a fast machine learning. Some implementation using pre-computed data structure to organize data in a more usable way can be used to reduce computation but it remains slow during prediction.
 
 ### Curse of dimensionality
 The curse of dimensionality in KNN refers to the inefficiency of the Euclidean distance metric in high-dimensional data spaces. As the number of dimensions increases, the distance between points becomes less meaningful.
@@ -112,6 +109,6 @@ However, KNN can be used in some specific circumstances:
 - No noise in data
 
 ## References
-1. https://towardsdatascience.com/k-nearest-neighbors-computational-complexity-502d2c440d5
-2. https://users.cs.utah.edu/~lifeifei/cis5930/kdtree.pdf
-3. https://towardsdatascience.com/knn-algorithm-what-when-why-how-41405c16c36f
+1. Complexity: [Towards Data Science](https://towardsdatascience.com/k-nearest-neighbors-computational-complexity-502d2c440d5)
+2. KDTree: [Univeristy of Utah](https://users.cs.utah.edu/~lifeifei/cis5930/kdtree.pdf)
+3. Usage case: [Towards Data Science](https://towardsdatascience.com/knn-algorithm-what-when-why-how-41405c16c36f)

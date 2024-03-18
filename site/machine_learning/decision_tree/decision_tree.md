@@ -14,7 +14,7 @@ The downside of high explainability is its impact on performance. Typically, per
 
 The training of a decision tree involves splitting features using the CART (Classification and Regression Trees) cost function. This function can be adjusted according to different contexts and impurity measures.
 
-Let's denote $I$ as the impurity metric we aim to minimize. For classification tasks, this could be Gini impurity or entropy, while for regression tasks, it is Mean Squared Error (MSE). Let $k$ represent the feature to select, $t_k$ the threshold value for data splitting, and $m$ the number of samples.
+Let's denote $I$ as the impurity metric we aim to minimize. For classification tasks, this could be Gini impurity or entropy, while for regression tasks, it is [MSE](https://therayquaza.github.io/machine_learning/metrics_and_losses/metrics_and_losses.html#mse). Let $k$ represent the feature to select, $t_k$ the threshold value for data splitting, and $m$ the number of samples.
 
 The cost function for the binary decision tree we seek to minimize is as follows:
 
