@@ -99,7 +99,7 @@ Let's consider TP as "The email is valid". The following table illustrates two s
 
 | | Maximizing Recall | Maximizing Precision |
 | ----------- | ----------- | ----------- |
-| Prefered situation | Avoid classifing spam as valid email | Avoid classifing valid email as spam |
+| Prefered situation | Avoid classifying spam as valid email | Avoid classifying valid email as spam |
 | Minimize | FN (False Negative) | FP (False Positive) |
 
 Depending on the situation and the meaning of TP, precision and recall have different aspects. For each classification, be sure to understand both and maximizing the one you are interested in.
