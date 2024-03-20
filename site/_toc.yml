@@ -4,9 +4,15 @@ root: intro
 parts:
   - caption: Fundamentals
     chapters:
-      - file: machine_learning/metrics_and_losses/metrics_and_losses # Metrics & Losses
+      - file: fundamentals/metrics_and_losses # Metrics & Losses
+      - file: fundamentals/activations # Activations
   - caption: Machine Learning
     chapters: # ML
+    - file: machine_learning/linear/linear
+      sections: # Ridge, Lasso, Elastic Net, Logisitc
+        - file: machine_learning/linear/linear_regression
+        - file: machine_learning/linear/regularized_model
+        - file: machine_learning/linear/logistic_regression
     - file: machine_learning/knn/knn # KNN
       sections: # KNNRegressor, KNNClassifier
         - file: machine_learning/knn/knn_regressor

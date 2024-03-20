@@ -16,7 +16,7 @@ In this section, I will draw a list of metrics and losses commonly used in machi
 The MSE (Mean squared error) is the most used **metrics** for regression and is the default choice for regression task.
 MSE is also used in some **loss** function because of its differentiable nature.
 
-$$ MSE(y, f(x)) = \frac{\sum_{i=1}^n (y_i - f(x_i))^2}{n} $$
+$$ MSE(y, f(x)) = \frac{1}{N} \sum_{i=1}^N (y_i - f(x_i))^2 $$
 
 | Pros      | Cons |
 | ----------- | ----------- |
@@ -31,7 +31,7 @@ def mse(y_true: np.array, y_pred: np.array) -> float:
 ### MAE
 ![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Loss-3A8EDF.svg)
 
-$$ MAE(y, f(x)) = \frac{\sum_{i=1}^n |y_i - f(x_i)|}{n} $$
+$$ MAE(y, f(x)) = \frac{1}{N} \sum_{i=1}^N |y_i - f(x_i)| $$
 
 | Pros      | Cons |
 | ----------- | ----------- |
@@ -48,7 +48,7 @@ def mae(y_true: np.array, y_pred: np.array) -> float:
 
 RMSE (Root mean squared error) is less used, its formula is given by:
 
-$$ RMSE(y, f(x)) = \sqrt{\frac{\sum_{i=1}^n (y_i - f(x_i))^2}{n}} $$
+$$ RMSE(y, f(x)) = \sqrt{\frac{1}{N} \sum_{i=1}^N (y_i - f(x_i))^2} $$
 
 | Pros      | Cons |
 | ----------- | ----------- |
@@ -115,7 +115,7 @@ It can be used for any types of classification: binary, multi-class or multi-lab
 
 One definition (from [scikit-learn.org](https://scikit-learn.org/stable/modules/model_evaluation.html#classification-metrics)) would be:
 
-$$ accuracy(y, f(x)) = \frac{\sum_{i=1}^N 1(y_i = f(x_i))}{N}$$
+$$ accuracy(y, f(x)) = \frac{1}{N} \sum_{i=1}^N 1(y_i = f(x_i))$$
 
 where $1(x)$ is the indicator function.
 

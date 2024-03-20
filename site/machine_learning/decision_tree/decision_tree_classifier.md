@@ -124,7 +124,7 @@ I trained and plot the decision boundary of the model:
 Decision Boundary of a Non-Pruned Decision Tree (0.9 Accuracy)
 ```
 
-The specifity of the decision trees' decision boundary lies in its shape. As the space data is splitted among its dimensions with the chosen value maximizing the information gain, we get a split a split in 1 dimension (vertical and horizontal separation for 2D observation). The more precise the model is, the more detailled are those boundaries.
+The specifity of the decision tree's decision boundary lies in its shape. As the space data is splitted among its dimensions with the chosen value maximizing the information gain, we get a split a split in 1 dimension (vertical and horizontal separation for 2D observation). The more precise the model is, the more detailled are those boundaries.
 
 For simpler decision boundaries (maximum 1 or 2 decisions), we would split the dataset with less detailled boundaries (few vertical / horizontal split);
 
