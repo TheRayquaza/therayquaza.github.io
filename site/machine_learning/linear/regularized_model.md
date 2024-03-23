@@ -1,31 +1,33 @@
 # Regularized Linear Model
 
-Linear Regression is the simplest type of regression model. It does not include regularization in its cost function which help preventing the weights to become insanly huge.
+Linear Regression is the simplest type of regression model. It does not include regularization to help preventing overfitting. For ridge regression, lasso regression and elastic net, regularization adds constraint on the coefficient using different norm ($l_1$ or/and $l_2$).
 
 In this section I will draw some of the regularization linear model for regression task.
 
 Considering:
 
 $$ MSE(\theta) = \frac{1}{2N} (\theta X - y)^2 $$
+
 $$ \nabla_{\theta} MSE(\theta) = \frac{1}{N} X^T(X\theta - y) $$
 
-We have the following models:
-
-|                   | Ridge Regression | Lasso Regression | Elastic Net |
-|-------------------|------------------|------------------|-------------|
-| Parameters        | $ \theta ,  \lambda $ | $ \theta , \lambda $ | $ \theta ,  \lambda_1 ,  \lambda_2 $ |
-| Regularization    | $l_2$            | $l_1$            | $l_1$ and $l_2$ |
-| Cost Function ($J(\theta)$)    | $ MSE(\theta) + \lambda \sum_{j=1}^{n} \theta_j^2 $ | $ MSE(\theta) + \lambda \sum_{j=1}^{n} \| \theta_j \| $ | $ MSE(\theta) + \lambda_1 \lambda_2 \sum_{j=1}^{n} \| \theta_j \| + \lambda_1 \frac{1 - \lambda_2}{2} \sum_{j=1}^{n} \theta_j^2 $ |
-| Gradient of Cost Function ($ \nabla_{\theta} J(\theta)$) | $ \nabla_{\theta} MSE(\theta)+ \lambda \theta $ | $ \nabla_{\theta} MSE(\theta)+ \lambda \cdot sign(\theta) $ | $ \nabla_{\theta} MSE(\theta)+ \lambda_1 \cdot sign(\theta) + \lambda_2 \theta $ |
-| Usage case        | Suitable for multicollinear data   | Suitable for feature selection     | Combines benefits of $l_1$ and $l_2$ regularization |
-
 ## Ridge Regression
+
+Ridge regression uses $l_2$ regularization: it applies a $l_2$ norm on each of the model's weights in the cost function.
+Ridge regression is suitable for multicollinear data.
+
+### Cost function & Gradient
+
+$$ J(\theta) = MSE(\theta) + \lambda \sum_{j=1}^{n} \theta_j^2 $$
+
+$$ \nabla_{\theta} J(\theta) = \nabla_{\theta} MSE(\theta) + \lambda \theta $$
+
+### Implementation
 
 Here a naive implementation of the ridge regression:
 
 ```python
 class RidgeRegression:
-    def __init__(self, it=20, lr=1e-4, alpha=1):
+    def __init__(self, it=30, lr=1e-3, alpha=1):
         self.it = it
         self.lr = lr
         self.alpha = 1
@@ -40,11 +42,29 @@ class RidgeRegression:
         return np.hstack([X, np.ones((X.shape[0], 1))]) @ self.weights
 ```
 
+Here a graph to show the impact of the regularization factor $\lambda$ (here called alpha) on a polynomial dataset:
+
+```{figure} https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/linear/ridge_regression.png
+Ridge regression with different $\alpha$
+```
+
 ## Lasso Regression
+
+Lasso regression is really similar to ridge regression. It uses $l_1$ regularization instead of $l_2$. Lasso regression is suitable for feature selection.
+
+### Cost function & Gradient
+
+$$ J(\theta) = MSE(\theta) + \lambda \sum_{j=1}^{n} \| \theta_j \| $$
+
+$$ \nabla_{\theta} J(\theta) = \nabla_{\theta} MSE(\theta)+ \lambda \cdot sign(\theta) $$
+
+### Implementation
+
+Here a naive implementation of Lasso regression:
 
 ```python
 class LassoRegression:
-    def __init__(self, it=20, lr=1e-4, alpha=1):
+    def __init__(self, it=30, lr=1e-3, alpha=0.1):
         self.it = it
         self.lr = lr
         self.alpha = 1
@@ -59,7 +79,23 @@ class LassoRegression:
         return np.hstack([X, np.ones((X.shape[0], 1))]) @ self.weights
 ```
 
+Here a graph to show the impact of the regularization factor $\lambda$ (called alpha) on a polynomial dataset:
+
+```{figure} https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/linear/lasso_regression.png
+Lasso regression with different $\alpha$
+```
+
 ## Elastic Net
+
+Elastic Net is using a mix of $l_1$ and $l_2$ taking advantage of both Ridge & Lasso Regression.
+
+### Cost function & Gradient
+
+$$ J(\theta) = MSE(\theta) + \lambda_1 \lambda_2 \sum_{j=1}^{n} \| \theta_j \| + \lambda_1 \frac{1 - \lambda_2}{2} \sum_{j=1}^{n} \theta_j^2 $$
+
+$$ \nabla_{\theta} J(\theta) = \nabla_{\theta} MSE(\theta)+ \lambda_1 \cdot sign(\theta) + \lambda_2 \theta $$
+
+### Implementation
 
 ```python
 class ElasticNet:

@@ -25,7 +25,7 @@ f_{\theta}(x) = \left\{\begin{matrix}
 \end{matrix}\right.
 $$
 
-Now to define the cost function $J(\theta)$, instead of using the prediction function to calculate the error like we did in [linear regression](https://therayquaza.github.io/machine_learning/linear/linear_regression.html), we use the probability function $\rho_{\theta}$. The loss function of the logistic regression is called [log-loss](https://therayquaza.github.io/fundamentals/metrics_and_losses.html) and is defined as:
+Now to define the cost function $J(\theta)$, instead of using the prediction function to calculate the error like we did in [linear regression](https://therayquaza.github.io/machine_learning/linear/linear_regression.html), we use the probability function $\rho_{\theta}$. The loss function of the logistic regression is called [log-loss](https://therayquaza.github.io/fundamentals/metrics_and_losses.html#log-loss) and is defined as:
 
 $$
 J(\theta) = - \frac{1}{N} \sum_{i = 1}^n y_i \log(\rho_{\theta}(x_i)) + (1 - y_i) \log(1 - \rho_{\theta}(x_i))

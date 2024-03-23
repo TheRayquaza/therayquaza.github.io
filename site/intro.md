@@ -15,22 +15,40 @@ I am also including personal touch in some parts of this book such as experiment
 
 I am referencing all information at the end of each content.
 I am primarly using:
-- books
+- Books:
   * Hands-On Machine Learning with Scikit-Learn, Keras & Tensorflow (3rd Edition) by Aurélien Géron, O'Reilly Media
   * Deep Learning by Ian Goodfellow and Yoshua Bengio and Aaron Courville, MIT Press
   * Generative Deep Learning: Teaching Machines to Paint, Write, Compose, and Play by David Foster, O'Reilly Media
   * PyTorch Pocket Reference Building and Deploying Deep Learning Models by Joe Papa, O'Reilly Media
-- websites
+- Articles:
   * [Towards Data Science](https://towardsdatascience.com/)
   * [Medium](https://medium.com/)
   * [Stack Exchange](https://stackexchange.com/)
   * [Wikipedia](https://www.wikipedia.org/)
+- Courses:
   * [Google crash course](https://developers.google.com/machine-learning/crash-course)
-  * [Papers With Code](https://paperswithcode.com/) (+ datasets)
-  * [Kaggle](https://kaggle.com) (+ datasets)
-- Papers
+  * [Kaggle](https://kaggle.com)
+- Documentations:
+  * [Numpy](https://numpy.org)
+  * [Scikit Learn](https://scikit-learn.org/)
+  * [Tensorflow](https://www.tensorflow.org/)
+- Papers:
   * [arXiv](https://arxiv.org/)
+  * [Papers With Code](https://paperswithcode.com/)
   * [Research Gate](https://www.researchgate.net/)
+
+## Where to get ?
+
+### Datasets
+- [Papers With Code](https://paperswithcode.com/)
+- [Kaggle](https://kaggle.com)
+- [Hugging Face Datasets](https://huggingface.co/datasets)
+
+### Models
+- [Hugging Face Models](https://huggingface.co/models)
+- [Github](https://github.com)
+
+## Table of content
 
 ```{tableofcontents}
 ```
