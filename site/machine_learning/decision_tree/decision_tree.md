@@ -1,5 +1,8 @@
 # Decision Tree
 
+```{tableofcontents}
+```
+
 ## What is a decision tree ?
 
 Decision trees are a machine learning technique that utilizes a tree data structure to partition data based on their dimensions. Decision trees are considered explainable models, meaning we can comprehend the model's output simply by examining its rules.

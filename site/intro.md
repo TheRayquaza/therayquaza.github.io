@@ -8,16 +8,29 @@ Feel free to contact me if you have any advice to improve my content, I will be 
 
 ## Why this website ?
 
-As I am trying to start my career in AI, I decided to write about the techniques I am learning because I believe writting will help me strengthen my understanding in AI.
+As I am trying to start my career in data science, I decided to write about the techniques I am learning because I believe writting will help me strengthen my understanding in AI.
 I am also including personal touch in some parts of this book such as experiment oriented on performance for production and in the future, various techniques used in MLOps, Big Data and new technonology used for today's applications.
 
 ## Where do I get my information ?
 
 I am referencing all information at the end of each content.
 I am primarly using:
-- books as a primary resource
-- well known website
-- some articles for specific and advance concept
+- books
+  * Hands-On Machine Learning with Scikit-Learn, Keras & Tensorflow (3rd Edition) by Aurélien Géron, O'Reilly Media
+  * Deep Learning by Ian Goodfellow and Yoshua Bengio and Aaron Courville, MIT Press
+  * Generative Deep Learning: Teaching Machines to Paint, Write, Compose, and Play by David Foster, O'Reilly Media
+  * PyTorch Pocket Reference Building and Deploying Deep Learning Models by Joe Papa, O'Reilly Media
+- websites
+  * [Towards Data Science](https://towardsdatascience.com/)
+  * [Medium](https://medium.com/)
+  * [Stack Exchange](https://stackexchange.com/)
+  * [Wikipedia](https://www.wikipedia.org/)
+  * [Google crash course](https://developers.google.com/machine-learning/crash-course)
+  * [Papers With Code](https://paperswithcode.com/) (+ datasets)
+  * [Kaggle](https://kaggle.com) (+ datasets)
+- Papers
+  * [arXiv](https://arxiv.org/)
+  * [Research Gate](https://www.researchgate.net/)
 
 ```{tableofcontents}
 ```

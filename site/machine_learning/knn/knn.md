@@ -1,4 +1,8 @@
 # K-nearest neighbors
+
+```{tableofcontents}
+```
+
 ## What is KNN?
 
 K-nearest neighbors (KNN) is a non-parametric supervised learning technique created in 1951. It's based on the nearest neighbors algorithm, which is a special case of KNN ($k = 1$). KNN is often considered the simplest machine learning technique.
