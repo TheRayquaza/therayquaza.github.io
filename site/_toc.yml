@@ -21,3 +21,7 @@ parts:
       sections: # DecisionTreeClassifier, DecisionTreeRegressor
         - file: machine_learning/decision_tree/decision_tree_regressor
         - file: machine_learning/decision_tree/decision_tree_classifier
+    - file: machine_learning/clustering/clustering
+      sections: # KMeans, DBSCAN, HDBSCAN
+        - file: machine_learning/clustering/kmeans
+        - file: machine_learning/clustering/dbscan

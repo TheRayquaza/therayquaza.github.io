@@ -8,7 +8,8 @@ Feel free to contact me if you have any advice to improve my content, I will be 
 
 ## Why this website ?
 
-As I am trying to start my career in data science, I decided to write about the techniques I am learning because I believe writting will help me strengthen my understanding in AI.
+As I am trying to start my career in data science, I decided to write about the techniques I am learning because I believe writting will help me strengthen my understanding in AI. I also report some experiments and contents I find interesting.
+
 I am also including personal touch in some parts of this book such as experiment oriented on performance for production and in the future, various techniques used in MLOps, Big Data and new technonology used for today's applications.
 
 ## Where do I get my information ?
@@ -22,7 +23,6 @@ I am primarly using:
   * PyTorch Pocket Reference Building and Deploying Deep Learning Models by Joe Papa, O'Reilly Media
 - Articles:
   * [Towards Data Science](https://towardsdatascience.com/)
-  * [Medium](https://medium.com/)
   * [Stack Exchange](https://stackexchange.com/)
   * [Wikipedia](https://www.wikipedia.org/)
 - Courses:
@@ -36,6 +36,10 @@ I am primarly using:
   * [arXiv](https://arxiv.org/)
   * [Papers With Code](https://paperswithcode.com/)
   * [Research Gate](https://www.researchgate.net/)
+
+## Where do I get my images ?
+
+All images provided on this website has been either created by myself (primarly matplotlib) or on websites (image is provided with its source).
 
 ## Where to get ?
 
