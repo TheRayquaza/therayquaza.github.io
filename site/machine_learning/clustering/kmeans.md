@@ -1,14 +1,25 @@
 # K-Means
+![Clustering](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Clustering.svg)
 
-K-Means is centroid-based algorithm that creates $k$ clusters with k given by the user. K-Means algorithm is guarenteed to converge to the an optimal solution (it can converge to a local optimum depending on the centroids initalization).
+K-Means is centroid-based algorithm that creates $k$ clusters with $k$ given by the user. K-Means algorithm is guarenteed to converge to an optimal solution (it can converge to a local optimum depending on the initalization step).
 
-## Algorithm
+## How works K-Means ?
+
+K-Means is purely based on the [Lloyd’s algorithm](https://en.wikipedia.org/wiki/Lloyd%27s_algorithm).
 
 K-Means algorithm is straightforward:
 1. Initialize random centroids or select pre-defined great centroids.
 2. Repeat step until centroids are not updated anymore:
     - Assign each observation to the nearest cluster
     - Calculate the new centroids of each cluster
+
+Other implementation such as **K-Means++**, **Batch K-means** or **Spectral Clustering** are "adaptations" of K-Means.
+
+## Assumption
+
+- Assumes the right metric is used
+- Assumes clusters have spherical-shaped
+- Assumes features are continuous
 
 ## Implementation
 
@@ -83,7 +94,7 @@ model.fit(X)
 ```
 
 ```{note}
-I removed the gender feature as it a categorical feature and I have already 3 features.
+I removed the gender feature as it is a categorical feature and I have already 3 features.
 ```
 
 ### Plot result

@@ -44,7 +44,7 @@ def mae(y_true: np.array, y_pred: np.array) -> float:
 ```
 
 ### RMSE
-![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Metric-orange.svg)
+![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Metric.svg)
 
 RMSE (Root mean squared error) is less used, its formula is given by:
 
@@ -60,7 +60,7 @@ def rmse(y_true: np.array, y_pred: np.array) -> float:
 ```
 
 ### Huber Loss
-![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Loss-3A8EDF.svg)
+![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Loss.svg)
 
 If MSE is great for penalizing outliers and MAE is great for ignoring outliers, Huber loss lies somewhere between.
 For a given $\delta$, its formula is given by:
@@ -83,7 +83,7 @@ def huber_loss(y_true: np.array, y_pred: np.array, delta:float) -> float:
 ```
 
 ### Quantile Loss
-![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Loss-3A8EDF.svg)
+![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Loss.svg)
 
 Quantile loss is used when the goal of the model is to predict a particular variable quantile.
 Considering $\alpha$ the quantile we want to predict, the formula is:
@@ -108,7 +108,7 @@ def quantile_loss(y_true: np.array, y_pred: np.array, q:float) -> float:
 ## Supervised Learning: Classification
 
 ### Accuracy
-![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Metric-orange.svg)
+![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Metric.svg)
 
 Accuracy measures the proportion of well classified sample.
 It can be used for any types of classification: binary, multi-class or multi-label.
@@ -150,7 +150,7 @@ Ideal matrix is a **diagonal matrix**.
 This matrix is a valuable tool for evaluating the performance of a classification model, as it provides insight into the model's ability to correctly classify instances across different classes. From the confusion matrix, various metrics can be derived, such as precision, recall, and F1 score.
 
 ### Precision & Recall
-![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Metric-orange.svg)
+![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Metric.svg)
 
 Precision on a class $k_i$ measure the proportion of true classification (the sample is truly of class $k_i$) with the proportion of false classification (the sample is not of class $k_i$).
 The formula is given by:
@@ -186,7 +186,7 @@ Let's consider TP as "The email is valid". The following table illustrates two s
 Depending on the situation and the meaning of TP, precision and recall have different aspects. For each classification, be sure to understand both and maximizing the one you are interested in.
 
 ### F1
-![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Metric-orange.svg)
+![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Metric.svg)
 
 F1 is a metric combining both precision and recall used to measure the model performance for both metrics.
 It is defined as follow:
@@ -196,7 +196,7 @@ $$ F_1 = 2\frac{precision \cdot recall}{precision + recall} $$
 Using $F_1$ gives us a balanced evaluation of the model's ability to correctly identify positive cases while minimizing FP and FN.
 
 ### Log-Loss
-![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Loss-3A8EDF.svg)
+![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Loss.svg)
 
 Log-Loss is a well known metric used to measure the performance of a classification model where the prediction output is a probability value between 0 and 1. <br>
 Log-Loss is also a loss function commonly called **Binary Cross-Entropy**.
@@ -214,7 +214,7 @@ def log_loss(y_true: np.array, y_pred: np.array) -> float:
 ```
 
 ### Categorical Cross-Entropy
-![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Loss-3A8EDF.svg)
+![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Loss.svg)
 
 Categorical Cross-Entropy is the generalization of the Binary Cross-Entropy.
 The classifier is now predicting the probability for each class to be the valid class:
@@ -230,7 +230,7 @@ def categorical_cross_entropy(y_true: np.array, y_pred: np.array) -> float:
 ```
 
 ### Hinge Loss
-![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Loss-3A8EDF.svg)
+![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Loss.svg)
 
 Hinge Loss is a loss function used in SVM model.
 
@@ -247,7 +247,7 @@ def hinge_loss(y_true: np.array, y_pred: np.array) -> float:
 ## Unsupervised Learning: Clustering
 
 ### Silhouette Score
-![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Metric-orange.svg)
+![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Metric.svg)
 
 The silhouette score is a metric used in clustering task to measures how similar is an object with its own cluster compared to the other clusters.
 To define the silhouette score, we need two values $a_i$ (intra-cluster distance) and $b_i$ (nearest-cluster distance):

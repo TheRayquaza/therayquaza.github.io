@@ -103,10 +103,11 @@ To solve this issue, various techniques can be used, including:
 KNN uses the training set, which means it cannot help to understand hidden relationships within the training set.
 Thus, it is not interpretable, which may be an issue in some real-world problems requiring decision explanation.
 
-## When to use KNN ?
+## Assumption
 
-KNN performs bad in general case for real world problem.
-However, KNN can be used in some specific circumstances:
+KNN assumes that similar data points tend to belong to the same class.
+
+KNN should be used in some specific circumstances:
 - Small dataset
 - Well distributed dataset
 - Low dimensional data

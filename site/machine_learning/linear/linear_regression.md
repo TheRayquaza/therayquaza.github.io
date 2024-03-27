@@ -1,8 +1,14 @@
 # Linear Regression
 
-A Linear model can recognize **linear** relationship with a set of observation.
+![Regression](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Regression.svg)
 
-The type of equation linear model for a regression task in $N$ dimensions are dealing with have the form:
+## Assumption
+
+Linear model assumes there is a **linear** relationship within the set of observation.
+
+## Diving into math
+
+Linear model for a regression task in $N$ dimensions have equation of the form:
 
 $$ y = \theta_{0} + \sum_{i = 1}^N \theta_{i} x_i $$
 

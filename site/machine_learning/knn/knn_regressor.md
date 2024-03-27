@@ -1,10 +1,17 @@
 # KNN for regression
 
-KNN classifier can be adapted for regression task. It performs just as its classifier version but instead of using the voting principle, we use the mean feature. 
+![Regression](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Regression.svg)
 
-## Naive implementation
+KNN classifier can be adapted for regression task. It performs just as its classifier version but instead of using the voting principle, we calculate the mean on each features. 
+
+## Asumption
+
+
+
+## Implementation
 
 This is a really simple implementation of the KNN regressor using the naive approach from my github repo.
+
 ```python
 import numpy as np
 

@@ -1,5 +1,7 @@
 # KNN for classification
 
+![Classification](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Classification.svg)
+
 ## Naive implementation
 
 This is a really simple implementation of the KNN classifier using the naive approach from my github repo.

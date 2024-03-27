@@ -1,5 +1,7 @@
 # Regularized Linear Model
 
+![Regression](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Regression.svg)
+
 Linear Regression is the simplest type of regression model. It does not include regularization to help preventing overfitting. For ridge regression, lasso regression and elastic net, regularization adds constraint on the coefficient using different norm ($l_1$ or/and $l_2$).
 
 In this section I will draw some of the regularization linear model for regression task.

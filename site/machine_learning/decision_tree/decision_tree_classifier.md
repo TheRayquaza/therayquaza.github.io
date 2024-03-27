@@ -1,8 +1,10 @@
 # Decision tree for classification
 
-## Naive Implementation
+![Classification](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Classification.svg)
 
-Here is a naive implementation:
+## Implementation
+
+Here is a naive implementation following instructions:
 - Find the best split by selecting the best feature $k$ and the best split value $v$
 - Split the data on feature k: values greater than v on feature k go to the right otherwise it goe to the left
 - Build the tree recursively until max_depth is zero or the node is pure

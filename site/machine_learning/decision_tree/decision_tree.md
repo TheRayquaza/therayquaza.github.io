@@ -29,6 +29,11 @@ Decision trees can also use more general data structures such as a general tree 
 
 $$ J(k, t_k) = \sum_{i=1}^{n} \frac{m_i}{m} I_i $$
 
+## Assumption
+
+- Assumes that the data can be split into homogeneous regions based on the values of the independent variables
+- Assumes that the relationships between the independent variables and the dependent variable are non-linear
+
 ## Why is it an explainable model ?
 
 By design, inner rules from decision trees can be extracted.

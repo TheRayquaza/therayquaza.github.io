@@ -1,8 +1,12 @@
 # Logistic Regression
 
-(Heavily inspired by HOML)
+![Classification](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Classification.svg)
 
 Logistic regression is an adaptation of the [linear regression](https://therayquaza.github.io/machine_learning/linear/linear_regression.html) for binary classification tasks.
+
+## Assumption
+
+
 
 ## How works a logistic regression ?
 

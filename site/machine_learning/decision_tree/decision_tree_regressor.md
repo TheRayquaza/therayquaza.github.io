@@ -1,11 +1,13 @@
 # Decision tree for regression
 
+![Regression](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Regression.svg)
+
 Decision tree can be adapted for regression task.
 Instead of minimzing the gini or entropy impurity adapted for classifcation, we use any regression metric such as [MSE](https://therayquaza.github.io/machine_learning/metrics_and_losses/metrics_and_losses.html#mse).
 
-## Naive Implementation
+## Implementation
 
-Here a naive implementation rom my github repo:
+Here a naive implementation from my github repo:
 
 ```python
 import numpy as np

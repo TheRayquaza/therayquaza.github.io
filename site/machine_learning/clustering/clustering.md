@@ -37,12 +37,54 @@ DBSCAN of scikit identifying clusters ($\epsilon$ = 0.5 & $min_samples=5$)
 
 ### Hierarchical
 
-...
+Hierarchical techniques are all techniques involving separating clusters in a hirarchical tree structure.
+
+Hierarchical techniques are divided in 2 separates type of techniques:
+- Agglomerative (*bottom-up* approach)
+- Divisive (*top-down* approach)
+
+Agglomerative techniques are more common.
+
+Hierarchical techniques can be plotted as a dendrogram (using plot code from [Scikit](https://scikit-learn.org/stable/auto_examples/cluster/plot_agglomerative_dendrogram.html#sphx-glr-auto-examples-cluster-plot-agglomerative-dendrogram-py)):
+
+```{figure} https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/clustering/hierarchical_dendogram.png
+Agglomerative Hierarchical clustering on customer's data for behavior analysis (taken from [Kaggle](https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis)]
+```
+
+The dendogram above is an effective way of representing clusters of customer behaviors. Note that the dataset included 28 features (both numerical and categorical) which could never be plotted as we did for the other techniques. Each hierarchy can then have its own analysis to understand the type of customers and how we could have impact on each category.
 
 ### Distribution-based
 
 Distribution-based techniques are less commonly used because they require knowledge of the underlying distribution in our data.
-...
+These techniques try to find optimal distrubtions that represent the best each obsverations.
+Distribution-based techniques can perform really well on clusters having different sizes (which is not the case for Centroid-based for example).
+
+Here is an example of using distrubtion-based clustering with a gaussian mixture model (hence guassian assumption):
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.mixture import GaussianMixture
+
+mean1, cov1 = np.array([-2, 1]), np.array([[2, 1], [1, 3]])
+n1 = np.random.multivariate_normal(mean1, cov1, 100)
+
+mean2, cov2 = np.array([4, -3]), np.array([[4, 2], [2, 3]])
+n2 = np.random.multivariate_normal(mean2, cov2, 100)
+
+dataset = np.vstack([n1, n2])
+clusters = GaussianMixture(n_components=2).fit_predict(dataset)
+```
+
+```{figure} https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/clustering/density_based_GMM.png
+GMM sklearn - 2 bivariate distributions $\mathcal{N}(\begin{bmatrix} -2 \\ 1 \end{bmatrix},\begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix})\,$ and $\mathcal{N}(\begin{bmatrix} 4 \\ -3 \end{bmatrix},\begin{bmatrix} 4 & 2 \\ 2 & 3 \end{bmatrix})\,$
+```
+
+I used matrix notation to define $\mu$ the mean of the joint distrubtion and $\sigma$ the covariance matrix (needs to be symetric because $\sigma_{XY} = \sigma_{YX}$).
+
+```{note}
+In this example, GMM performs really well since the observations have been created directly using gaussian distrubtions. It is never the case ! GMM performs really well when we know that observations' distrubtions are gaussians.
+```
 
 ## References
 1. Unsupervised Learning: Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow by Aurélien Géron
@@ -50,3 +92,6 @@ Distribution-based techniques are less commonly used because they require knowle
 3. K-Means: [Wikipedia](https://en.wikipedia.org/wiki/K-means_clustering)
 4. DBSCAN: [Medium](https://medium.com/@okanyenigun/dbscan-demystified-understanding-how-this-parameter-free-algorithm-works-89e03d7d7ab)
 5. DBSCAN: [Wikipedia](https://en.wikipedia.org/wiki/DBSCAN)
+6. Clustering: [Western Michigan University](https://cs.wmich.edu/alfuqaha/summer14/cs6530/lectures/ClusteringAnalysis.pdf)
+7. Great video on GM: [Youtube](https://www.youtube.com/watch?v=EWd1xRkyEog)
+8. Taxonomy of clustering techniques: [Towards Data Science](https://medium.com/@sayahfares19/k-means-clustering-algorithm-for-unsupervised-learning-tasks-f761ed7f37c0)

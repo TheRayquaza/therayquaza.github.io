@@ -1,11 +1,13 @@
 # DBSCAN
+![Clustering](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Clustering.svg)
 
 DBSCAN (Density-based spatial clustering of applications with noise).
-DBSCAN algorithm is a density based algorithm. It is based on identifying high density regions and detecting outliers in low density regions.
+DBSCAN algorithm is a density based algorithm. It is based on identifying high density regions and detecting outliers in low density regions. 
+DBSCAN is adapted to identify cluster of different size, it can handle varying densities.
 
 ## How works DBSCAN ?
 
-DBSCAN has two hyperameters:
+DBSCAN has three hyperameters:
 - $\epsilon$: the minimum distance to consider that two obsverations are next to each other
 - $n$: the number of samples next to an obsveration required to consider it as a **core-point**
 - $d$: the distance function (usually the euclidean distance $||x - y||_2$)
@@ -23,6 +25,11 @@ The algorithm of DBSCAN is the following (from [wikipedia](https://en.wikipedia.
 ```{note}
 Non-core points without any cluster are called noise points (hence Density-based spatial clustering of applications **with noise**)
 ```
+
+## Assumption
+
+- Assumes that clusters can be identified using density
+- Assumes that any point not associated with a high-density region is considered noise
 
 ## Implementation
 

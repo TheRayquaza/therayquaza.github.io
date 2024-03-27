@@ -102,7 +102,7 @@ Elu
 
 ## Gelu (Gaussian Error Linear Units)
 
-Gelu is a new activation function proposed in 2016 by Dan Hendrycks & Kevin Gimpel in their paper [Gaussian Error Linear Units (GELUs)](https://arxiv.org/pdf/1606.08415v5.pdf) which performs really well and even better than Relu and Elu for large range of task.
+Gelu is a new activation function proposed in 2016 by Dan Hendrycks & Kevin Gimpel in their paper [Gaussian Error Linear Units (GELUs)](https://arxiv.org/pdf/1606.08415v5.pdf) which performs really well and even better than Relu and Elu for a large range of task.
 
 Gelu definition can be confusing at the beginning, an approximation using $tanh$ has been given in the paper:
 
