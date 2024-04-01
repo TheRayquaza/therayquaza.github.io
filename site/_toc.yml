@@ -25,3 +25,7 @@ parts:
       sections: # KMeans, DBSCAN, HDBSCAN
         - file: machine_learning/clustering/kmeans
         - file: machine_learning/clustering/dbscan
+        - file: machine_learning/clustering/gaussian_mixture
+    - file: machine_learning/naive_bayes/naive_bayes
+      sections: # Multinomial Bayes
+        - file: machine_learning/naive_bayes/multinomial_naive_bayes
