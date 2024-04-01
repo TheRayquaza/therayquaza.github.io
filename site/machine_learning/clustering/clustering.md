@@ -94,4 +94,5 @@ In this example, GMM performs really well since the observations have been creat
 5. DBSCAN: [Wikipedia](https://en.wikipedia.org/wiki/DBSCAN)
 6. Clustering: [Western Michigan University](https://cs.wmich.edu/alfuqaha/summer14/cs6530/lectures/ClusteringAnalysis.pdf)
 7. Great video on GM: [Youtube](https://www.youtube.com/watch?v=EWd1xRkyEog)
-8. Taxonomy of clustering techniques: [Towards Data Science](https://medium.com/@sayahfares19/k-means-clustering-algorithm-for-unsupervised-learning-tasks-f761ed7f37c0)
+8. Taxonomy of clustering techniques: [Medium](https://medium.com/@sayahfares19/k-means-clustering-algorithm-for-unsupervised-learning-tasks-f761ed7f37c0)
+9. EM algorithm for GMM: [Medium](https://jonathan-hui.medium.com/machine-learning-expectation-maximization-algorithm-em-2e954cb76959)

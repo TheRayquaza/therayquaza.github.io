@@ -50,8 +50,8 @@ class KMeans():
         i = 0
         while (self.last_centroids is None or not np.all(self.last_centroids == self.centroids)) and (i < self.max_iter):
             self.last_centroids = np.copy(self.centroids)
-            self.clusters = [self._assign_cluster(j)[1] for j in range(self.datapoints)] # Assign clusters
-            self.centroids = [self._compute_centroid(j)[0] for j in range(self.n_clusters)] # Compute centroids
+            self.clusters = [self._assign_cluster(j)[1] for j in range(self.datapoints)]
+            self.centroids = [self._compute_centroid(j)[0] for j in range(self.n_clusters)]
             i += 1
         return self
 
