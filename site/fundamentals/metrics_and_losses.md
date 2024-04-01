@@ -11,7 +11,7 @@ In this section, I will draw a list of metrics and losses commonly used in machi
 ## Supervised Learning: Regression
 
 ### MSE
-![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Loss-3A8EDF.svg)
+![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Loss.svg)
 
 The MSE (Mean squared error) is the most used **metrics** for regression and is the default choice for regression task.
 MSE is also used in some **loss** function because of its differentiable nature.
@@ -29,7 +29,7 @@ def mse(y_true: np.array, y_pred: np.array) -> float:
 ```
 
 ### MAE
-![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/Type-Loss-3A8EDF.svg)
+![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Loss.svg)
 
 $$ MAE(y, f(x)) = \frac{1}{N} \sum_{i=1}^N |y_i - f(x_i)| $$
 

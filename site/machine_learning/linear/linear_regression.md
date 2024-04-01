@@ -216,4 +216,4 @@ Linear model learning non linear realations ($y = x^2 + x + 2$)
 
 This is an example where we know the type of relation between x and y.
 
-In this example, I just created a new feature $x^2$ but feature engineering includes other techniques: Feature Selection, **Feature Transformation** ($x^2$), Feature Creation and Feature Extraction.
+In this example, I just created a new feature $x^2$ but feature engineering includes other techniques.

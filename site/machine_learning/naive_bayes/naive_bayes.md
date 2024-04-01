@@ -5,9 +5,9 @@
 
 Naive Bayes regroups all supervised classification techniques based on the Bayes Theorem and the assumption that all features are independent of each other.
 
-## Bayes Theorem
+## Bayes' Theorem
 
-Bayes theorem is a fundamental theorem of conditional probability.
+Bayes' Theorem is a fundamental theorem of conditional probability.
 The fundamental idea behind bayes' theorem is: $ Posterior = \frac{Likelihood \times Prior}{Evidence} $
 
 Given an independent feature vector $X=(x_1,x_2,...,x_n)$ and its class $y$, we have:
@@ -43,7 +43,7 @@ $$ P(y | X) = \frac{\prod_{i=1}^n P(x_i|y) \times P(y)}{P(X)}  $$
 
 ## Assumption
 
-Naive bayes technique assumes that all features are independent of each other.
+Naive bayes technique assumes that all features are independent to each other.
 
 ## References
 1. Naive Bayes Algorithm [Medium](https://medium.com/analytics-vidhya/na%C3%AFve-bayes-algorithm-5bf31e9032a2)
