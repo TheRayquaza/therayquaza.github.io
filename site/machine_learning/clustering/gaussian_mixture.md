@@ -212,8 +212,6 @@ class GMM:
         self.g = np.zeros((self.k, self.N))
         
         for it in range(self.it):
-            if self.verbose:
-                print("######### step", it)
             self.__e_step(X)
             self.__m_step(X)
         return self
@@ -230,9 +228,7 @@ Now we can experiment the GMM on two distributions, here: $\mathcal{N}(2, 1)$ an
 ```python
 import matplotlib.pyplot as plt
 
-N = 100
-k = 2
-d = 1
+N, k, d = 100, 2, 1
 X1 = np.random.multivariate_normal(np.array([2]),  np.array([[1]]), N//2)
 X2 = np.random.multivariate_normal(np.array([-2]),  np.array([[1]]), N//2)
 X = np.concatenate((X1, X2))
