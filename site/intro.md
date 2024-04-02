@@ -39,7 +39,7 @@ I am primarly using:
 
 ## Where do I get my images ?
 
-All images provided on this website has been either created by myself (primarly matplotlib) or on websites (image is provided with its source).
+All images provided on this website has been either created by myself (generated using matplotlib) or on websites (image is provided with its source).
 
 ## Where to get ?
 

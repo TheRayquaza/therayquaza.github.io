@@ -76,7 +76,7 @@ $\mu$ indicates the center of the distribution and $\sigma$ indicates how spread
 
 The generalization of distribution is multivariate distribution. Multivariate distribution is a distribution involving more than one random variable: we use **random vector** (a list of random variables).
 
-```{figure} https://upload.wikimedia.org/wikipedia/commons/9/95/Multivariate_normal_sample.svg
+```{figure} https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/machine_learning/clustering/Multivariate_normal_sample.svg
 Multivariate normal PDF on 2 random variables from wikipedia
 ```
 

@@ -138,7 +138,7 @@ accuracy_score(y_test, y_pred)
 We get a great accuracy of almost **0.89**, this is great !
 Now we can determine with a correct accuracy whether the customer liked or not the product based on its review.
 
-### Problems with Multinomial Naive Bayes
+## Problems with Multinomial Naive Bayes
 
 This technique can be really useful for text analysis. However, it performs really bad when 
 - reviews have words are really different from the original dataset. 

@@ -14,13 +14,7 @@ parts:
         - file: machine_learning/linear/regularized_model
         - file: machine_learning/linear/logistic_regression
     - file: machine_learning/knn/knn # KNN
-      sections: # KNNRegressor, KNNClassifier
-        - file: machine_learning/knn/knn_regressor
-        - file: machine_learning/knn/knn_classifier
     - file: machine_learning/decision_tree/decision_tree # DT
-      sections: # DecisionTreeClassifier, DecisionTreeRegressor
-        - file: machine_learning/decision_tree/decision_tree_regressor
-        - file: machine_learning/decision_tree/decision_tree_classifier
     - file: machine_learning/clustering/clustering
       sections: # KMeans, DBSCAN, HDBSCAN
         - file: machine_learning/clustering/kmeans

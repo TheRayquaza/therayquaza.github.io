@@ -195,6 +195,19 @@ $$ F_1 = 2\frac{precision \cdot recall}{precision + recall} $$
 
 Using $F_1$ gives us a balanced evaluation of the model's ability to correctly identify positive cases while minimizing FP and FN.
 
+### AUC & ROC
+![Metric](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Metric.svg)
+
+The ROC (Receiver operating characteristic) curve is a graph measuring the performance of a classfication model with all possible thresholds. The curve includes two parameters: *TP* Rate and *FP* Rate 
+
+Here an example of a ROC curve from the [Google Crash Course](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc):
+
+```{figure} https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/fundamentals/metrics/ROCCurve.svg
+ROC Curve
+```
+
+The AUC (Area under the ROC curve) is a metric used for classification using the ROC Curve. To calculate the AUC, we take the area (hence integral) under the ROC curve. The best value is a AUC of 1 (perfect classification), the worst is 0.5 when prediction is not better than random guess.
+
 ### Log-Loss
 ![Loss](https://raw.githubusercontent.com/TheRayquaza/therayquaza.github.io/main/images/badges/Loss.svg)
 
@@ -284,3 +297,4 @@ $$
 8. Categorical Cross-Entropy: [Medium](https://neuralthreads.medium.com/categorical-cross-entropy-loss-the-most-important-loss-function-d3792151d05b)
 9. Hinge Loss: [Wikipedia](https://en.wikipedia.org/wiki/Hinge_loss)
 10. Silhouette: [Wikipedia](https://en.wikipedia.org/wiki/Silhouette_(clustering))
+11. ROC & AUC: [Google Course](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc)
