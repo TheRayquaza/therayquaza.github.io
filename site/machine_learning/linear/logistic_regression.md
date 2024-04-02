@@ -20,7 +20,7 @@ where $\sigma$ is defined as the sigmoid function:
 
 $$ \sigma(x) = \frac{1}{1 + e^{-x}} $$
 
-This prediction function is used for the final decision in the prediction function $f_{\theta}$ using a theshold (here 0.5):
+This probability function is used for the final decision in the prediction function $f_{\theta}$ using a theshold (here 0.5):
 
 $$ 
 f_{\theta}(x) = \left\{\begin{matrix}
