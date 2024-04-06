@@ -4,22 +4,23 @@ root: intro
 parts:
   - caption: Fundamentals
     chapters:
-      - file: fundamentals/metrics_and_losses # Metrics & Losses
-      - file: fundamentals/activations # Activations
+      - file: fundamentals/metrics_and_losses
+      - file: fundamentals/activations
   - caption: Machine Learning
-    chapters: # ML
+    chapters:
     - file: machine_learning/linear/linear
-      sections: # Ridge, Lasso, Elastic Net, Logisitc
+      sections:
         - file: machine_learning/linear/linear_regression
         - file: machine_learning/linear/regularized_model
         - file: machine_learning/linear/logistic_regression
-    - file: machine_learning/knn/knn # KNN
-    - file: machine_learning/decision_tree/decision_tree # DT
+    - file: machine_learning/knn/knn
+    - file: machine_learning/decision_tree/decision_tree
     - file: machine_learning/clustering/clustering
-      sections: # KMeans, DBSCAN, HDBSCAN
+      sections:
         - file: machine_learning/clustering/kmeans
         - file: machine_learning/clustering/dbscan
         - file: machine_learning/clustering/gaussian_mixture
+        - file: machine_learning/clustering/affinity_propagation
     - file: machine_learning/naive_bayes/naive_bayes
-      sections: # Multinomial Bayes
+      sections:
         - file: machine_learning/naive_bayes/multinomial_naive_bayes

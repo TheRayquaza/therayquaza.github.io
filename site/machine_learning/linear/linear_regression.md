@@ -44,7 +44,7 @@ $$ \theta = (X^TX)^{-1} X^Ty $$
 
 The proof (from [Toward Data Science](https://towardsdatascience.com/analytical-solution-of-linear-regression-a0e870b038d5)) is the following:
 
-Using some tricks (as [explained](https://towardsdatascience.com/analytical-solution-of-linear-regression-a0e870b038d5)), we can write the cost function $J({\theta})$:
+Using some tricks, we can write the cost function $J({\theta})$:
 
 $$ J(\theta) = \theta^TX^TX\theta - 2y^TX\theta + y^Ty $$
 
